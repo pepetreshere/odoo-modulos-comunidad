@@ -1,0 +1,64 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* stock_cancel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20140408-231240\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-05 17:13+0000\n"
+"PO-Revision-Date: 2014-05-05 12:52-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: stock_cancel
+#: code:addons/stock_cancel/stock.py:47
+#, python-format
+msgid "Line %s has valuation moves (%s). Remove them first"
+msgstr "La linea %s tiene un asiento contable (%s). Debe remover este asiento"
+
+#. module: stock_cancel
+#: model:ir.model,name:stock_cancel.model_stock_picking_in
+msgid "Incoming Shipments"
+msgstr "Envíos a recibir"
+
+#. module: stock_cancel
+#: code:addons/stock_cancel/stock.py:46
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: stock_cancel
+#: view:stock.picking:0
+#: view:stock.picking.in:0
+#: view:stock.picking.out:0
+msgid "Are you sure you want to reopen this stock picking?"
+msgstr "¿Está seguro que desea volver a abrir este movimiento de stock?"
+
+#. module: stock_cancel
+#: view:stock.picking:0
+#: view:stock.picking.in:0
+#: view:stock.picking.out:0
+msgid "Reopen"
+msgstr "Volver Abrir"
+
+#. module: stock_cancel
+#: model:ir.model,name:stock_cancel.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: stock_cancel
+#: model:ir.model,name:stock_cancel.model_stock_picking_out
+msgid "Delivery Orders"
+msgstr "Albaranes de salida"
+
+#. module: stock_cancel
+#: code:addons/stock_cancel/stock.py:58
+#, python-format
+msgid "The stock picking '%s' has been set in draft state."
+msgstr "El movimiento de stock '%s' debe estar en estador borrador."
+

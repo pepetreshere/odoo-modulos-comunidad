@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="move_line_list_print" model="ir.actions.report.xml">
+      <field name="report_type">webkit</field>
+      <field name="report_name">move.line.list.print</field>
+      <field name="multi" eval="0"/>
+      <field name="auto" eval="0"/>
+      <field name="header" eval="1"/>
+      <field name="model">account.move.line</field>
+      <field name="type">ir.actions.report.xml</field>
+      <field name="name">Print Selected Lines</field>
+      <field name="report_rml">account_move_line_report/report/move_line_list_print.mako</field>
+      <field name="report_file">account_move_line_report/report/move_line_list_print.mako</field>
+    </record>
+    
+    <record id="property_move_line_list_print_webkit_header" model="ir.property">
+      <field name="name">webkit_header</field>
+      <field name="fields_id" ref="report_webkit.field_ir_act_report_xml_webkit_header"/>
+      <field name="company_id" eval="None"/>
+      <field eval="'ir.header_webkit,'+str(ref('account_move_line_report.ir_header_webkit_list_view_print'))" model="ir.header_webkit" name="value"/>
+      <field eval="'ir.actions.report.xml,'+str(ref('account_move_line_report.move_line_list_print'))" model="ir.actions.report.xml" name="res_id"/>
+    </record>
+    
+    <record model="ir.values" id="move_line_list_print_ir_values">
+      <field name="model_id" ref="account.model_account_move_line"/>
+      <field name="name">Print Selected Lines</field>
+      <field name="key2">client_print_multi</field>
+      <field name="value" eval="'ir.actions.report.xml,' +str(ref('move_line_list_print'))"/>
+      <field name="key">action</field>
+      <field name="model">account.move.line</field>
+    </record>
+    
+  </data>
+</openerp>

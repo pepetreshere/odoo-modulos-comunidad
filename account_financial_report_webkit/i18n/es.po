@@ -1,0 +1,727 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_financial_report_webkit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20131217-002420\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-15 22:04+0000\n"
+"PO-Revision-Date: 2014-01-15 17:22-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: account_financial_report_webkit
+#: help:account.account,centralized:0
+msgid "If flagged, no details will be displayed in the General Ledger report (the webkit one only), only centralized amounts per period."
+msgstr "Si marcado, no hay detalles se mostrarán en el informe de Contabilidad General (sólo el uno webkit), sólo cantidades centralizados por período."
+
+#. module: account_financial_report_webkit
+#: constraint:account.common.balance.report:0
+#: constraint:general.ledger.webkit:0
+#: constraint:open.invoices.webkit:0
+#: constraint:partner.balance.webkit:0
+#: constraint:partners.ledger.webkit:0
+#: constraint:print.journal.webkit:0
+#: constraint:trial.balance.webkit:0
+msgid "When no Fiscal year is selected, you must choose to filter by periods or by date."
+msgstr "Cuando se selecciona ningún año fiscal, se debe elegir para filtrar por periodos o por fecha."
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,account_ids:0
+#: field:general.ledger.webkit,account_ids:0
+#: field:partner.balance.webkit,account_ids:0
+#: field:trial.balance.webkit,account_ids:0
+msgid "Filter on accounts"
+msgstr "Filtro en cuentas"
+
+#. module: account_financial_report_webkit
+#: field:open.invoices.webkit,group_by_currency:0
+msgid "Group Partner by currency"
+msgstr "Socio Grupo por tipo de moneda"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+msgid "onchange_date_to(fiscalyear_id, period_to, date_to, until_date)"
+msgstr "onchange_date_to(fiscalyear_id, period_to, date_to, until_date)"
+
+#. module: account_financial_report_webkit
+#: view:partner.balance.webkit:0
+msgid "This report is an analysis done by a partner, It is a PDF report containing one line per partner representing the cumulative credit balance"
+msgstr "Este informe es un análisis realizado por un compañero, es un informe PDF que contiene una línea por cada socio que representa el saldo acumulado"
+
+#. module: account_financial_report_webkit
+#: help:general.ledger.webkit,amount_currency:0
+#: help:open.invoices.webkit,amount_currency:0
+#: help:partners.ledger.webkit,amount_currency:0
+#: help:print.journal.webkit,amount_currency:0
+msgid "It adds the currency column"
+msgstr "Añade la columna de la moneda"
+
+#. module: account_financial_report_webkit
+#: field:general.ledger.webkit,centralize:0
+msgid "Activate Centralization"
+msgstr "Activar Centralizado"
+
+#. module: account_financial_report_webkit
+#: help:account.common.balance.report,account_ids:0
+#: help:general.ledger.webkit,account_ids:0
+#: help:partner.balance.webkit,account_ids:0
+#: help:trial.balance.webkit,account_ids:0
+msgid "Only selected accounts will be printed. Leave empty to print all accounts."
+msgstr "Se imprimirán solo las seleccionadas. Dejar en blanco para imprimir todas las cuentas."
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_trial_balance_webkit
+msgid "Trial Balance Report"
+msgstr "Informe de sumas y saldos"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:open.invoices.webkit:0
+#: view:partner.balance.webkit:0
+#: view:partners.ledger.webkit:0
+#: view:trial.balance.webkit:0
+msgid "True"
+msgstr "True"
+
+#. module: account_financial_report_webkit
+#: field:account.move.line,last_rec_date:0
+msgid "Last reconciliation date"
+msgstr "Ultima fehca de conciliacion"
+
+#. module: account_financial_report_webkit
+#: field:open.invoices.webkit,partner_ids:0
+#: field:partner.balance.webkit,partner_ids:0
+#: field:partners.ledger.webkit,partner_ids:0
+msgid "Filter on partner"
+msgstr "Filtro en Empresa"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+msgid "This report allows you to print or generate a pdf of your general ledger with details of all your account journals"
+msgstr "Este informe le permite imprimir o generar un PDF de su libro mayor con detalles de todas sus publicaciones cuenta"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_general_ledger_menu_webkit
+msgid "General Ledger"
+msgstr "Libro mayor"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_trial_balance_menu_webkit
+#: view:trial.balance.webkit:0
+msgid "Trial Balance"
+msgstr "Balance de sumas y saldos"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+msgid "Clearance Analysis Options"
+msgstr "Opciones de análisis Liquidación"
+
+#. module: account_financial_report_webkit
+#: view:trial.balance.webkit:0
+msgid "This report allows you to print or generate a pdf of your trial balance allowing you to quickly check the balance of each of your accounts in a single report"
+msgstr "Este informe le permite imprimir o generar un PDF de su balance de comprobación que le permite comprobar rápidamente el equilibrio de cada una de sus cuentas en un solo informe"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_trial_balance_webkit
+msgid "Trial Balance Webkit"
+msgstr "Trial Balance Webkit"
+
+#. module: account_financial_report_webkit
+#: selection:general.ledger.webkit,display_account:0
+msgid "With transactions or non zero balance"
+msgstr "Con transacciones o saldo no cero"
+
+#. module: account_financial_report_webkit
+#: help:account.common.balance.report,filter:0
+#: help:open.invoices.webkit,filter:0
+#: help:partner.balance.webkit,filter:0
+#: help:partners.ledger.webkit,filter:0
+#: help:trial.balance.webkit,filter:0
+msgid "Filter by date: no opening balance will be displayed. (opening balance can only be computed based on period to be correct)."
+msgstr "Filtrar por fecha: no se mostrará ningún balance de apertura. (saldo inicial sólo puede ser calculado sobre la base de tiempo que es correcta)."
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,company_id:0
+#: field:general.ledger.webkit,company_id:0
+#: field:open.invoices.webkit,company_id:0
+#: field:partner.balance.webkit,company_id:0
+#: field:partners.ledger.webkit,company_id:0
+#: field:print.journal.webkit,company_id:0
+#: field:trial.balance.webkit,company_id:0
+msgid "Company"
+msgstr "Compania"
+
+#. module: account_financial_report_webkit
+#: help:open.invoices.webkit,until_date:0
+msgid ""
+"The clearance date is essentially a tool used for debtors provisionning calculation.\n"
+"\n"
+"By default, this date is equal to the the end date (ie: 31/12/2011 if you select fy 2011).\n"
+"\n"
+"By amending the clearance date, you will be, for instance, able to answer the question : 'based on my last year end debtors open invoices, which invoices are still unpaid today (today is my clearance date)?'\n"
+msgstr ""
+"La fecha de liquidación es esencialmente una herramienta que se utiliza para los deudores provisionning cálculo. \n"
+"By amending the clearance date, you will be, for instance, able to answer the question : 'based on my last year end debtors open invoices, which invoices are still unpaid today (today is my clearance date)?'\n"
+
+#. module: account_financial_report_webkit
+#: field:general.ledger.webkit,amount_currency:0
+#: field:open.invoices.webkit,amount_currency:0
+#: field:partners.ledger.webkit,amount_currency:0
+#: field:print.journal.webkit,amount_currency:0
+msgid "With Currency"
+msgstr "Con Moneda"
+
+#. module: account_financial_report_webkit
+#: field:open.invoices.webkit,result_selection:0
+#: field:partner.balance.webkit,result_selection:0
+#: field:partners.ledger.webkit,result_selection:0
+msgid "Partner's"
+msgstr "Empresas"
+
+#. module: account_financial_report_webkit
+#: view:partners.ledger.webkit:0
+msgid "This report allows you to print or generate a pdf of your partner ledger with details of all your payable/receivable account"
+msgstr "Este informe le permite imprimir o generar un PDF de su libro mayor socio con los detalles de todas sus cuentas por pagar / por cobrar"
+
+#. module: account_financial_report_webkit
+#: help:open.invoices.webkit,partner_ids:0
+#: help:partner.balance.webkit,partner_ids:0
+#: help:partners.ledger.webkit,partner_ids:0
+msgid "Only selected partners will be printed. Leave empty to print all partners."
+msgstr "Se imprimirán socios Solamente seleccionados. Dejar en blanco para imprimir todos los asociados."
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,display_account:0
+#: selection:partner.balance.webkit,display_account:0
+#: selection:print.journal.webkit,display_account:0
+#: selection:trial.balance.webkit,display_account:0
+msgid "With balance is not equal to 0"
+msgstr "Con el balance no es igual a 0"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,display_account:0
+#: selection:partner.balance.webkit,display_account:0
+#: selection:print.journal.webkit,display_account:0
+#: selection:trial.balance.webkit,display_account:0
+msgid "With movements"
+msgstr "Con Movimientos"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:open.invoices.webkit:0
+#: view:partner.balance.webkit:0
+#: view:partners.ledger.webkit:0
+#: view:trial.balance.webkit:0
+msgid "[('fiscalyear_id', '=', fiscalyear_id), ('special', '=', False)]"
+msgstr "[('fiscalyear_id', '=', fiscalyear_id), ('special', '=', False)]"
+
+#. module: account_financial_report_webkit
+#: view:partner.balance.webkit:0
+#: view:trial.balance.webkit:0
+msgid "{'required': [('filter', '=', 'filter_opening')]}"
+msgstr "{'required': [('filter', '=', 'filter_opening')]}"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+msgid "This report allows you to print or generate a pdf of your open invoices per partner with details of all your payable/receivable account. Exclude full reconciled journal items."
+msgstr "Este informe le permite imprimir o generar un pdf de sus facturas pendientes por asociarse con los detalles de todas sus cuentas por pagar / por cobrar. Excluir elementos completos de revistas reconciliadas."
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,comp0_filter:0
+#: selection:account.common.balance.report,comp1_filter:0
+#: selection:account.common.balance.report,comp2_filter:0
+#: selection:account.common.balance.report,filter:0
+#: selection:general.ledger.webkit,filter:0
+#: selection:open.invoices.webkit,filter:0
+#: selection:partner.balance.webkit,comp0_filter:0
+#: selection:partner.balance.webkit,comp1_filter:0
+#: selection:partner.balance.webkit,comp2_filter:0
+#: selection:partner.balance.webkit,filter:0
+#: selection:partners.ledger.webkit,filter:0
+#: selection:print.journal.webkit,filter:0
+#: selection:trial.balance.webkit,comp0_filter:0
+#: selection:trial.balance.webkit,comp1_filter:0
+#: selection:trial.balance.webkit,comp2_filter:0
+#: selection:trial.balance.webkit,filter:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_financial_report_webkit
+#: help:general.ledger.webkit,centralize:0
+msgid "Uncheck to display all the details of centralized accounts."
+msgstr "Desmarque para mostrar todos los detalles de las cuentas centralizadas."
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,chart_account_id:0
+#: field:general.ledger.webkit,chart_account_id:0
+#: field:open.invoices.webkit,chart_account_id:0
+#: field:partner.balance.webkit,chart_account_id:0
+#: field:partners.ledger.webkit,chart_account_id:0
+#: field:print.journal.webkit,chart_account_id:0
+#: field:trial.balance.webkit,chart_account_id:0
+msgid "Chart of Account"
+msgstr "Plan de Cuentas"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,journal_ids:0
+#: field:general.ledger.webkit,journal_ids:0
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_print_journal_menu_webkit
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_print_journal_sale_purchase_menu_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_print_journal_webkit
+#: field:open.invoices.webkit,journal_ids:0
+#: field:partner.balance.webkit,journal_ids:0
+#: field:partners.ledger.webkit,journal_ids:0
+#: view:print.journal.webkit:0
+#: field:print.journal.webkit,journal_ids:0
+#: field:trial.balance.webkit,journal_ids:0
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:open.invoices.webkit:0
+#: view:partners.ledger.webkit:0
+msgid "Layout Options"
+msgstr "Opciones de Vista"
+
+#. module: account_financial_report_webkit
+#: selection:open.invoices.webkit,result_selection:0
+#: selection:partner.balance.webkit,result_selection:0
+#: selection:partners.ledger.webkit,result_selection:0
+msgid "Receivable and Payable Accounts"
+msgstr "Cuentas por cobrar y por pagar"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,comp0_filter:0
+#: selection:account.common.balance.report,comp1_filter:0
+#: selection:account.common.balance.report,comp2_filter:0
+#: selection:account.common.balance.report,filter:0
+#: selection:general.ledger.webkit,filter:0
+#: selection:open.invoices.webkit,filter:0
+#: selection:partner.balance.webkit,comp0_filter:0
+#: selection:partner.balance.webkit,comp1_filter:0
+#: selection:partner.balance.webkit,comp2_filter:0
+#: selection:partner.balance.webkit,filter:0
+#: selection:partners.ledger.webkit,filter:0
+#: view:print.journal.webkit:0
+#: selection:print.journal.webkit,filter:0
+#: selection:trial.balance.webkit,comp0_filter:0
+#: selection:trial.balance.webkit,comp1_filter:0
+#: selection:trial.balance.webkit,comp2_filter:0
+#: selection:trial.balance.webkit,filter:0
+msgid "Periods"
+msgstr "Periodos"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,comp0_date_to:0
+#: field:account.common.balance.report,comp1_date_to:0
+#: field:account.common.balance.report,comp2_date_to:0
+#: field:account.common.balance.report,date_to:0
+#: field:general.ledger.webkit,date_to:0
+#: field:open.invoices.webkit,date_to:0
+#: field:partner.balance.webkit,comp0_date_to:0
+#: field:partner.balance.webkit,comp1_date_to:0
+#: field:partner.balance.webkit,comp2_date_to:0
+#: field:partner.balance.webkit,date_to:0
+#: field:partners.ledger.webkit,date_to:0
+#: field:print.journal.webkit,date_to:0
+#: field:trial.balance.webkit,comp0_date_to:0
+#: field:trial.balance.webkit,comp1_date_to:0
+#: field:trial.balance.webkit,comp2_date_to:0
+#: field:trial.balance.webkit,date_to:0
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,comp0_period_from:0
+#: field:account.common.balance.report,comp1_period_from:0
+#: field:account.common.balance.report,comp2_period_from:0
+#: field:account.common.balance.report,period_from:0
+#: field:general.ledger.webkit,period_from:0
+#: field:open.invoices.webkit,period_from:0
+#: field:partner.balance.webkit,comp0_period_from:0
+#: field:partner.balance.webkit,comp1_period_from:0
+#: field:partner.balance.webkit,comp2_period_from:0
+#: field:partner.balance.webkit,period_from:0
+#: field:partners.ledger.webkit,period_from:0
+#: field:print.journal.webkit,period_from:0
+#: field:trial.balance.webkit,comp0_period_from:0
+#: field:trial.balance.webkit,comp1_period_from:0
+#: field:trial.balance.webkit,comp2_period_from:0
+#: field:trial.balance.webkit,period_from:0
+msgid "Start Period"
+msgstr "Periodo Inicial"
+
+#. module: account_financial_report_webkit
+#: model:ir.ui.menu,name:account_financial_report_webkit.menu_account_open_invoices
+#: view:open.invoices.webkit:0
+msgid "Open Invoices"
+msgstr "Facturas AbiertasFacturas Abiertas"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:open.invoices.webkit:0
+#: view:partner.balance.webkit:0
+#: view:partners.ledger.webkit:0
+#: view:trial.balance.webkit:0
+msgid "Time Filters"
+msgstr "Filtros de tiempo"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:open.invoices.webkit:0
+#: view:partner.balance.webkit:0
+#: view:partners.ledger.webkit:0
+#: view:trial.balance.webkit:0
+msgid "Print only"
+msgstr "Solo Imprimir"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,target_move:0
+#: selection:general.ledger.webkit,target_move:0
+#: selection:open.invoices.webkit,target_move:0
+#: selection:partner.balance.webkit,target_move:0
+#: selection:partners.ledger.webkit,target_move:0
+#: selection:print.journal.webkit,target_move:0
+#: selection:trial.balance.webkit,target_move:0
+msgid "All Posted Entries"
+msgstr "Todas las entradas publicadas"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_partners_ledger_webkit
+msgid "Partner Ledger Report"
+msgstr "Reporte Mayor de la Empresa"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_partner_balance_webkit
+msgid "Partner Balance Report"
+msgstr "Reporte Balance de la Empresa"
+
+#. module: account_financial_report_webkit
+#: field:open.invoices.webkit,until_date:0
+msgid "Clearance date"
+msgstr "Fecha de Liquidacion"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_general_ledger_webkit
+msgid "General Ledger Webkit"
+msgstr "Mayor General Webkit"
+
+#. module: account_financial_report_webkit
+#: help:account.common.balance.report,fiscalyear_id:0
+#: help:general.ledger.webkit,fiscalyear_id:0
+#: help:open.invoices.webkit,fiscalyear_id:0
+#: help:partner.balance.webkit,fiscalyear_id:0
+#: help:partners.ledger.webkit,fiscalyear_id:0
+#: help:print.journal.webkit,fiscalyear_id:0
+#: help:trial.balance.webkit,fiscalyear_id:0
+msgid "Keep empty for all open fiscal year"
+msgstr "Mantenga vacío para todo el año fiscal abierto"
+
+#. module: account_financial_report_webkit
+#: view:print.journal.webkit:0
+msgid "This report allows you to print or generate a pdf of your print journal with details of all your account journals"
+msgstr "Este informe le permite imprimir o generar un pdf de la revista impresa con los detalles de todas las revistas de su cuenta"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,comp0_period_to:0
+#: field:account.common.balance.report,comp1_period_to:0
+#: field:account.common.balance.report,comp2_period_to:0
+#: field:account.common.balance.report,period_to:0
+#: field:general.ledger.webkit,period_to:0
+#: field:open.invoices.webkit,period_to:0
+#: field:partner.balance.webkit,comp0_period_to:0
+#: field:partner.balance.webkit,comp1_period_to:0
+#: field:partner.balance.webkit,comp2_period_to:0
+#: field:partner.balance.webkit,period_to:0
+#: field:partners.ledger.webkit,period_to:0
+#: field:print.journal.webkit,period_to:0
+#: field:trial.balance.webkit,comp0_period_to:0
+#: field:trial.balance.webkit,comp1_period_to:0
+#: field:trial.balance.webkit,comp2_period_to:0
+#: field:trial.balance.webkit,period_to:0
+msgid "End Period"
+msgstr "Periodo Final"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_account_move_line
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_account_common_balance_report
+msgid "Common Balance Report"
+msgstr "Reporte de Balance Comun"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_partners_ledger_menu_webkit
+#: view:partners.ledger.webkit:0
+msgid "Partner Ledger"
+msgstr "Libro mayor de empresa"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_partners_ledger_webkit
+msgid "Partner Ledger Webkit"
+msgstr "Mayor de Empresa Webkit"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,display_account:0
+#: field:partner.balance.webkit,display_account:0
+#: field:print.journal.webkit,display_account:0
+#: field:trial.balance.webkit,display_account:0
+msgid "Display Accounts"
+msgstr "Visualizar Cuentas"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+msgid "onchange_period_to(fiscalyear_id, period_to, date_to, until_date)"
+msgstr "onchange_period_to(fiscalyear_id, period_to, date_to, until_date)"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,comp0_filter:0
+#: selection:account.common.balance.report,comp1_filter:0
+#: selection:account.common.balance.report,comp2_filter:0
+#: selection:partner.balance.webkit,comp0_filter:0
+#: selection:partner.balance.webkit,comp1_filter:0
+#: selection:partner.balance.webkit,comp2_filter:0
+#: selection:trial.balance.webkit,comp0_filter:0
+#: selection:trial.balance.webkit,comp1_filter:0
+#: selection:trial.balance.webkit,comp2_filter:0
+msgid "No Comparison"
+msgstr "Sin comparacion"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,comp0_filter:0
+#: selection:account.common.balance.report,comp1_filter:0
+#: selection:account.common.balance.report,comp2_filter:0
+#: selection:account.common.balance.report,filter:0
+#: selection:partner.balance.webkit,comp0_filter:0
+#: selection:partner.balance.webkit,comp1_filter:0
+#: selection:partner.balance.webkit,comp2_filter:0
+#: selection:partner.balance.webkit,filter:0
+#: selection:trial.balance.webkit,comp0_filter:0
+#: selection:trial.balance.webkit,comp1_filter:0
+#: selection:trial.balance.webkit,comp2_filter:0
+#: selection:trial.balance.webkit,filter:0
+msgid "Opening Only"
+msgstr "Solo Apertura"
+
+#. module: account_financial_report_webkit
+#: help:account.move.line,last_rec_date:0
+msgid "the date of the last reconciliation (full or partial) account move line"
+msgstr "La fecha de la última reconciliación (total o parcial) linea de movimiento contable"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_print_journal_webkit
+msgid "Journals Report"
+msgstr "Reporte de Mayores"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,comp0_filter:0
+#: field:account.common.balance.report,comp0_fiscalyear_id:0
+#: selection:account.common.balance.report,comp1_filter:0
+#: field:account.common.balance.report,comp1_fiscalyear_id:0
+#: selection:account.common.balance.report,comp2_filter:0
+#: field:account.common.balance.report,comp2_fiscalyear_id:0
+#: field:account.common.balance.report,fiscalyear_id:0
+#: field:general.ledger.webkit,fiscalyear_id:0
+#: field:open.invoices.webkit,fiscalyear_id:0
+#: selection:partner.balance.webkit,comp0_filter:0
+#: field:partner.balance.webkit,comp0_fiscalyear_id:0
+#: selection:partner.balance.webkit,comp1_filter:0
+#: field:partner.balance.webkit,comp1_fiscalyear_id:0
+#: selection:partner.balance.webkit,comp2_filter:0
+#: field:partner.balance.webkit,comp2_fiscalyear_id:0
+#: field:partner.balance.webkit,fiscalyear_id:0
+#: field:partners.ledger.webkit,fiscalyear_id:0
+#: field:print.journal.webkit,fiscalyear_id:0
+#: selection:trial.balance.webkit,comp0_filter:0
+#: field:trial.balance.webkit,comp0_fiscalyear_id:0
+#: selection:trial.balance.webkit,comp1_filter:0
+#: field:trial.balance.webkit,comp1_fiscalyear_id:0
+#: selection:trial.balance.webkit,comp2_filter:0
+#: field:trial.balance.webkit,comp2_fiscalyear_id:0
+#: field:trial.balance.webkit,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Año fiscal"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+#: view:partner.balance.webkit:0
+#: view:partners.ledger.webkit:0
+msgid "Partners Filters"
+msgstr "Filtros de Empresas"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,display_account:0
+#: selection:general.ledger.webkit,display_account:0
+#: selection:partner.balance.webkit,display_account:0
+#: selection:print.journal.webkit,display_account:0
+#: selection:trial.balance.webkit,display_account:0
+msgid "All"
+msgstr "Todo"
+
+#. module: account_financial_report_webkit
+#: selection:open.invoices.webkit,result_selection:0
+#: selection:partner.balance.webkit,result_selection:0
+#: selection:partners.ledger.webkit,result_selection:0
+msgid "Receivable Accounts"
+msgstr "Cuentas por Cobrar"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_partner_balance_menu_webkit
+#: view:partner.balance.webkit:0
+msgid "Partner Balance"
+msgstr "Balance de empresa"
+
+#. module: account_financial_report_webkit
+#: selection:open.invoices.webkit,result_selection:0
+#: selection:partner.balance.webkit,result_selection:0
+#: selection:partners.ledger.webkit,result_selection:0
+msgid "Payable Accounts"
+msgstr "Cuentas por Pagar"
+
+#. module: account_financial_report_webkit
+#: view:general.ledger.webkit:0
+#: view:partner.balance.webkit:0
+#: view:trial.balance.webkit:0
+msgid "Accounts Filters"
+msgstr "Filtros Cuentas"
+
+#. module: account_financial_report_webkit
+#: field:account.account,centralized:0
+msgid "Centralized"
+msgstr "Centralizado"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,target_move:0
+#: field:general.ledger.webkit,target_move:0
+#: field:open.invoices.webkit,target_move:0
+#: field:partner.balance.webkit,target_move:0
+#: field:partners.ledger.webkit,target_move:0
+#: field:print.journal.webkit,target_move:0
+#: field:trial.balance.webkit,target_move:0
+msgid "Target Moves"
+msgstr "Movimientos "
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.act_window,name:account_financial_report_webkit.action_account_open_invoices_menu_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_open_invoices_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_open_invoices_webkit
+msgid "Open Invoices Report"
+msgstr "Reporte de Facturas Abiertas"
+
+#. module: account_financial_report_webkit
+#: model:ir.model,name:account_financial_report_webkit.model_general_ledger_webkit
+msgid "General Ledger Report"
+msgstr "Informe del libro mayor"
+
+#. module: account_financial_report_webkit
+#: constraint:open.invoices.webkit:0
+msgid "Clearance date must be the very last date of the last period or later."
+msgstr "Fecha de Liquidación deberá ser la última fecha de la última menstruación o posterior."
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,filter:0
+#: selection:general.ledger.webkit,filter:0
+#: selection:open.invoices.webkit,filter:0
+#: selection:partner.balance.webkit,filter:0
+#: selection:partners.ledger.webkit,filter:0
+#: selection:print.journal.webkit,filter:0
+#: selection:trial.balance.webkit,filter:0
+msgid "No Filters"
+msgstr "Sin Filtros"
+
+#. module: account_financial_report_webkit
+#: selection:account.common.balance.report,target_move:0
+#: selection:general.ledger.webkit,target_move:0
+#: selection:open.invoices.webkit,target_move:0
+#: selection:partner.balance.webkit,target_move:0
+#: selection:partners.ledger.webkit,target_move:0
+#: selection:print.journal.webkit,target_move:0
+#: selection:trial.balance.webkit,target_move:0
+msgid "All Entries"
+msgstr "Todas las entradas"
+
+#. module: account_financial_report_webkit
+#: field:general.ledger.webkit,display_account:0
+msgid "Display accounts"
+msgstr "Visualizar Cuentas"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,comp0_date_from:0
+#: field:account.common.balance.report,comp1_date_from:0
+#: field:account.common.balance.report,comp2_date_from:0
+#: field:account.common.balance.report,date_from:0
+#: field:general.ledger.webkit,date_from:0
+#: field:open.invoices.webkit,date_from:0
+#: field:partner.balance.webkit,comp0_date_from:0
+#: field:partner.balance.webkit,comp1_date_from:0
+#: field:partner.balance.webkit,comp2_date_from:0
+#: field:partner.balance.webkit,date_from:0
+#: field:partners.ledger.webkit,date_from:0
+#: field:print.journal.webkit,date_from:0
+#: field:trial.balance.webkit,comp0_date_from:0
+#: field:trial.balance.webkit,comp1_date_from:0
+#: field:trial.balance.webkit,comp2_date_from:0
+#: field:trial.balance.webkit,date_from:0
+msgid "Start Date"
+msgstr "Fecha Inicial"
+
+#. module: account_financial_report_webkit
+#: help:account.common.balance.report,chart_account_id:0
+#: help:general.ledger.webkit,chart_account_id:0
+#: help:open.invoices.webkit,chart_account_id:0
+#: help:partner.balance.webkit,chart_account_id:0
+#: help:partners.ledger.webkit,chart_account_id:0
+#: help:print.journal.webkit,chart_account_id:0
+#: help:trial.balance.webkit,chart_account_id:0
+msgid "Select Charts of Accounts"
+msgstr "Seleccionar Plan de Cuentas"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,filter:0
+#: field:general.ledger.webkit,filter:0
+#: field:open.invoices.webkit,filter:0
+#: field:partner.balance.webkit,filter:0
+#: field:partners.ledger.webkit,filter:0
+#: field:print.journal.webkit,filter:0
+#: field:trial.balance.webkit,filter:0
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: account_financial_report_webkit
+#: model:ir.actions.report.xml,name:account_financial_report_webkit.account_report_partner_balance_webkit
+msgid "Partner Balance Webkit"
+msgstr "Balance de la Empresa Webkit"
+
+#. module: account_financial_report_webkit
+#: field:account.common.balance.report,comp0_filter:0
+#: field:account.common.balance.report,comp1_filter:0
+#: field:account.common.balance.report,comp2_filter:0
+#: field:partner.balance.webkit,comp0_filter:0
+#: field:partner.balance.webkit,comp1_filter:0
+#: field:partner.balance.webkit,comp2_filter:0
+#: field:trial.balance.webkit,comp0_filter:0
+#: field:trial.balance.webkit,comp1_filter:0
+#: field:trial.balance.webkit,comp2_filter:0
+msgid "Compare By"
+msgstr "Comparar por"
+
+#. module: account_financial_report_webkit
+#: view:open.invoices.webkit:0
+msgid "onchange_fiscalyear(fiscalyear_id, period_to, date_to, until_date)"
+msgstr "onchange_fiscalyear(fiscalyear_id, period_to, date_to, until_date)"
+

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_web_theme_form" model="ir.ui.view">
+            <field name="name">Web Theme</field>
+            <field name="model">web.theme.wizard</field>
+            <field name="arch" type="xml">
+                <form string="General Settings" version="7.0" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="save_record" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Web Theme"/>
+                    <group>
+                        <label for="id" string="Top Bar Gradient"/>
+                        <div>
+                            <div name="top_bar_gradian">
+                                <field name="module_top_bar_color_x" class="oe_inline"/>
+                                <label string=";"/>
+                                <field name="module_top_bar_color_y" class="oe_inline" nolabel="1"/>
+                            </div>
+                        </div>
+                        <label for="id" string="View Manager Header Gradient"/>
+                        <div>
+                            <div name="top_bar_gradian">
+                                <field name="module_view_manager_header_gradient_x" class="oe_inline"/>
+                                <label string=";"/>
+                                <field name="module_view_manager_header_gradient_y" class="oe_inline" nolabel="1"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Left Bar Color"/>
+                        <div>
+                            <div name="module_left_bar_color">
+                                <field name="module_left_bar_color" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Font Color"/>
+                        <div>
+                            <div name="module_font_color">
+                                <field name="module_font_color" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Main Menu Font Color"/>
+                        <div>
+                            <div name="module_main_menu_font">
+                                <field name="module_main_menu_font" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Sub Menu Font Color"/>
+                        <div>
+                            <div name="module_sub_menu_font">
+                                <field name="module_sub_menu_font" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Top Bar Menu Font Color"/>
+                        <div>
+                            <div name="module_top_bar_menu_font">
+                                <field name="module_top_bar_menu_font" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Tab String Font Color"/>
+                        <div>
+                            <div name="module_tab_string_color">
+                                <field name="module_tab_string_color" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Button Background Color"/>
+                        <div>
+                            <div name="top_bar_gradian">
+                                <field name="module_button_color_x" class="oe_inline"/>
+                                <label string=";"/>
+                                <field name="module_button_color_y" class="oe_inline" nolabel="1"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Link Color"/>
+                        <div>
+                            <div name="module_many2one_font_color">
+                                <field name="module_many2one_font_color" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <label for="id" string="Form Background image URL"/>
+                        <div>
+                            <div name="module_form_background_url">
+                                <field name="module_form_background_url" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <!--<record id="view_web_theme_form" model="ir.ui.view">
+            <field name="name">web.theme.form</field>
+            <field name="model">web.theme</field>
+            <field name="arch" type="xml">
+             <form string="Web Theme" version="7.0">
+                <header>
+                    <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                </header>
+                <separator string="General Settings"/>
+                <div>
+                    <group name="topbar">
+                        <group colspan = "4" col="3">
+                            <field name="top_bar_color_x" colspan="2"/>
+                            <field name="top_bar_color_y" colspan="1" nolabel="1"/>
+                            <field name="view_manager_header_gradient_x" colspan="2"/>
+                            <field name="view_manager_header_gradient_y" colspan="1" nolabel="1"/>
+                            <field name="left_bar_color" colspan="3"/>
+                            <field name="top_bar_menu_font" colspan="3"/>
+                            <field name="main_menu_font" colspan="3"/>
+                            <field name="sub_menu_font" colspan="3"/>
+                            <field name="font_color" colspan="3"/>
+                            <field name="tab_string_color" colspan="3"/>
+                            <field name="button_color_x" colspan="2"/>
+                            <field name="button_color_y" colspan="1" nolabel="1"/>
+                            <field name="many2one_font_color" colspan="3"/>
+                            <field name="form_background_url" colspan="3"/>
+                        </group>
+                    </group>
+                </div>
+                </form>
+            </field>
+        </record>-->
+        
+        <record id="action_web_theme_form_view" model="ir.actions.act_window">
+            <field name="name">Web Theme</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">web.theme.wizard</field>
+            <field name="view_id" ref="view_web_theme_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+        
+        <menuitem id="web_theme_root" name="Web Theme" parent="base.menu_administration"/>
+        
+        <menuitem id="web_theme_config" name="Web Theme Configuration" sequence="100" parent="web_theme_root" action="action_web_theme_form_view"/>
+    </data>
+</openerp>

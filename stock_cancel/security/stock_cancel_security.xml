@@ -1,0 +1,18 @@
+<openerp>
+<data noupdate="0">
+<record model="ir.module.category" id="module_category_stock_cancel">
+<field name="name">Stock Cancel</field>
+<field name="description">Helps you handle your stock cancel.</field>
+<field name="sequence">18</field>
+</record>
+<record model="res.groups" id="group_stock_picking_normal" context="{'noadmin':True}">
+<field name="name">Normal</field>
+<field name="category_id" ref="module_category_stock_cancel"/>
+</record>
+<record model="res.groups" id="group_stock_picking_admin">
+<field name="name">Administrator</field>
+<field name="category_id" ref="module_category_stock_cancel"/>
+<!-- <field name="implied_ids" eval="[(4, ref('group_stock_picking_normal'))]"/> -->
+</record>
+</data>
+</openerp>

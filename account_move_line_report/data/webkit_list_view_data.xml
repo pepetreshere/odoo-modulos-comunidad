@@ -1,0 +1,176 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+      <!-- Webkit header record for printing List Views -->
+      <record id="ir_header_webkit_list_view_print" model="ir.header_webkit">
+        <field name="name">List View Print</field>
+        <field name="orientation">Landscape</field>
+        <field name="format">A4</field>
+        <field name="css" >
+          <![CDATA[
+body {
+font-family:helvetica;
+font-size:9;
+}
+
+h1 {
+text-align:center;
+}
+
+.header {
+margin-left:0;
+text-align:left;
+width:300px;
+font-size:9;
+}
+
+.dest_address {
+margin-left:60%;
+font-size:9;
+}
+
+.subject {
+margin-left:0;
+text-align:left;
+font-size:9;
+}
+
+.table_noborder_left_12 {
+}
+.table_noborder_left_12 td {
+text-align:left;
+font-size:9;
+padding-right:3px;
+padding-left:3px;
+padding-top:3px;
+padding-bottom:3px;
+}
+
+.table_grey_left_12 {
+border-collapse:collapse;
+}
+.table_grey_left_12 td {
+border:1px solid lightGrey;
+text-align:left;
+font-size:9;
+padding-right:3px;
+padding-left:3px;
+padding-top:3px;
+padding-bottom:3px;
+}
+
+.basic_table{
+text-align:center;
+border:1px solid lightGrey;
+border-collapse: collapse;
+}
+.basic_table td {
+border:1px solid lightGrey;
+font-size:9;
+}
+
+.list_table {
+border-color:black;
+text-align:center;
+border-collapse: collapse;
+}
+.list_table td {
+border-color:lightGrey;
+border-top:1px lightGrey;
+text-align:left;
+font-size:9;
+vertical-align:top;
+padding-right:5px
+padding-left:5px
+padding-top:3px
+padding-bottom:3px
+}
+.list_table td.amount {
+text-align: right;
+padding-right:10px;
+}
+.list_table th {
+border-bottom:2px solid black;
+text-align:left;
+font-size:9;
+font-weight:bold;
+padding-right:5px
+padding-left:5px
+}
+.list_table th.amount {
+text-align: right;
+padding-right:10px
+}
+.list_table tfoot {
+border-top:2px solid black;
+text-align:left;
+font-size:9;
+font-weight:bold;
+padding-right:5px
+padding-left:5px
+}
+          ]]>
+        </field>
+        <field name="html">
+          <![CDATA[
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <script>
+      function subst() {
+      var vars = {};
+      var x = document.location.search.substring(1).split('&');
+      for (var i in x) { var z = x[i].split('=', 2); vars[z[0]] = unescape(z[1]); }
+      var x = ['frompage', 'topage', 'page', 'webpage', 'section', 'subsection', 'subsubsection'];
+      for (var i in x) {
+      var y = document.getElementsByClassName(x[i]);
+      for (var j = 0; j < y.length; ++j) y[j].textContent = vars[x[i]];
+                }
+            }
+    </script>
+  </head>
+  <body style="border:0; margin: 0;" onload="subst()">
+    <% setLang(lang) %>
+    <table style="border-bottom: 1px solid black; width: 100%">
+      <tr>
+	     <td style="text-align:left;font-size:9;font-weight: bold;">
+          ${company.partner_id.name |entity}
+        </td>
+	    <td style="text-align:right;font-size:9;">
+	      ${ formatLang(time.strftime("%Y-%m-%d"), date=True) }&nbsp;&nbsp;${ time.strftime("%H:%M") }&nbsp;&nbsp;-&nbsp;&nbsp;p. <span class="page">1</span> / <span class="topage">1</span>
+	    </td>
+      </tr>
+    </table>
+  </body>
+</html>          
+           ]]>
+        </field>
+        <field name="footer_html">
+          <![CDATA[
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <script>
+      function subst() {
+      var vars = {};
+      var x = document.location.search.substring(1).split('&');
+      for (var i in x) { var z = x[i].split('=', 2); vars[z[0]] = unescape(z[1]); }
+      var x = ['frompage', 'topage', 'page', 'webpage', 'section', 'subsection', 'subsubsection'];
+      for (var i in x) {
+      var y = document.getElementsByClassName(x[i]);
+      for (var j = 0; j < y.length; ++j) y[j].textContent = vars[x[i]];
+                }
+            }
+    </script>
+  </head>
+  <body style="border:0; margin: 0;" onload="subst()">
+  </body>
+</html>
+          ]]>
+        </field>
+      </record>
+      
+  </data>
+  </openerp>
+  

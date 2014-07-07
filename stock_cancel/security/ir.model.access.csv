@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_picking_admin,stock.picking admin,model_stock_picking,group_stock_picking_admin,1,1,1,1
+access_stock_picking_normal,stock.picking normal,model_stock_picking,group_stock_picking_normal,1,1,1,1
