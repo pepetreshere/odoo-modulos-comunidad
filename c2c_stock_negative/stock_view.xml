@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
   <data>
-<!--
+  <!-- Se modifico la vista de la comunidad para que este acorde con nombres de los modulos nuevos -->
     <record model="ir.ui.view" id="c2c_product_category_negative_form_view">
       <field name="name">c2c.product.category.negative.form</field>
       <field name="model">product.category</field>
-      <field name="inherit_id" ref="stock.view_normal_property_acc_form"/>
+      <field name="inherit_id" ref="stock.view_category_property_form"/>
       <field name="arch" type="xml">
-        <field name="valuation" position="after">
-          <field name="allow_negative_stock"/>
-        </field>
+      <!-- Este campo se busco para que el checkbox quede en la posicion requerida -->
+        <xpath expr="//field[@name='property_stock_journal']" position="after">
+          	<field name="allow_negative_stock"/>
+        </xpath>
       </field>
     </record>
--->
+
 <!--
     <record model="ir.ui.view" id="c2c_product_negative_form_view">
       <field name="name">c2c.product.negative.form</field>
