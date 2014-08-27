@@ -34,6 +34,9 @@ class account_invoice(osv.Model):
             context = {}
 
         res = super(account_invoice, self).action_number(cr, uid, ids, context)
+        #TODO: Hemos cambiado la variable context por 0 ya que eso nos permite continuar con el flujo normal
+        #Se necesitaria encontrar una solucion mas adecuada.
+        context=0
         if res:
             _invoice_ids = self.search(cr, uid, [('id','in',ids)], context)
             if len(_invoice_ids) > 0:
