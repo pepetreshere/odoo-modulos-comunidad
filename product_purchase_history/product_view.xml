@@ -13,7 +13,9 @@
 							    <tree>
 							        <field name="partner_id" />
 							        <field name="price_unit" />
+							        <field name="quantity" />
 							        <field name="discount" />
+							        <field name="price_subtotal" />
 							        <field name="invoice_id" />
 							        <field name="date_invoice" />
 							    </tree>
