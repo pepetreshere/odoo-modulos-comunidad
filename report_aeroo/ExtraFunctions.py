@@ -156,6 +156,9 @@ class ExtraFunctions(object):
                 self._text_plain('"wikimarkup" format is not supported! Need to be installed "python-mediawiki" package.'),
             'text_markup': self._text_markup,
             '__filter': self.__filter, # Don't use in the report template!
+            # TRESCLOUD EXTENDED
+            'search_extend':self._search_extend,
+            'search_ids_extend':self._search_ids_extend,
         }
 
     def __filter(self, val):
@@ -587,3 +590,17 @@ class ExtraFunctions(object):
             return self._text_rest('\n'.join(lines))
         return text
 
+#
+# TRESCLOUD
+# Autor: Patricio Rangles
+# Librerias extras para reporteria
+#
+#
+    def _search_ids_extend(self, model, domain, order_by=None, count=False):
+        obj = self.pool.get(model)
+        return obj.search(self.cr, self.uid, domain, order_by=None, count=count)
+
+    def _search_extend(self, model, domain, order_by=None):
+        obj = self.pool.get(model)
+        ids = _search_ids_extend(self, model, domain, order_by=order_by)
+        return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
