@@ -598,7 +598,7 @@ class ExtraFunctions(object):
 #
     def _search_ids_extend(self, model, domain, order_by=None, count=False):
         obj = self.pool.get(model)
-        return obj.search(self.cr, self.uid, domain, order_by=None, count=count)
+        return obj.search(self.cr, self.uid, domain, order=order_by, count=count)
 
     def _search_extend(self, model, domain, order_by=None):
         obj = self.pool.get(model)
