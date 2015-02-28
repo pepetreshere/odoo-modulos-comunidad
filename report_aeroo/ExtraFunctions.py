@@ -602,5 +602,5 @@ class ExtraFunctions(object):
 
     def _search_extend(self, model, domain, order_by=None):
         obj = self.pool.get(model)
-        ids = _search_ids_extend(self, model, domain, order_by=order_by)
+        ids = self._search_ids_extend(self, model, domain, order_by=order_by)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
