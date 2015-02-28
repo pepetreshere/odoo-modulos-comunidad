@@ -596,11 +596,11 @@ class ExtraFunctions(object):
 # Librerias extras para reporteria
 #
 #
-    def _search_ids_extend(self, model, domain, order_by=None, count=False):
+    def _search_ids_extend(self, model, domain, order_by, count):
         obj = self.pool.get(model)
         return obj.search(self.cr, self.uid, domain, order=order_by, count=count)
 
-    def _search_extend(self, model, domain, order_by=None):
+    def _search_extend(self, model, domain, order_by):
         obj = self.pool.get(model)
         ids = self._search_ids_extend(self, model, domain, order_by=order_by)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
