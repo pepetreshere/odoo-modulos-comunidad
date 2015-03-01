@@ -160,6 +160,7 @@ class ExtraFunctions(object):
             'search_extend': self._search_extend,
             'search_ids_extend': self._search_ids_extend,
             'read_ids': self._read_ids,
+            'sum_field_search': self._sum_field_search,
         }
 
     def __filter(self, val):
@@ -605,6 +606,15 @@ class ExtraFunctions(object):
         obj = self.pool.get(model)
         ids = self._search_ids_extend(model, domain, order_by=order_by)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
+
+    def _sum_field_search(self, model, domain, field):
+        obj = self.pool.get(model)
+        resul = self._search_ids_extend(model, domain, order_by=None)
+        sum = 0
+        for o in resul:
+            val = "float(o.%s)" % field
+            sum = sum + eval(val,o)
+        return sum
 
     def _read_ids(self, model, ids, fields = None):
         obj = self.pool.get(model)
