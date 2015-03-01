@@ -607,17 +607,26 @@ class ExtraFunctions(object):
         ids = self._search_ids_extend(model, domain, order_by=order_by)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
 
-    def _sum_field_search(self, model, domain, field):
+    def _sum_field_search(self, model, domain, field, field_condition=None, condition_add=None, condition_substract=None):
         obj = self.pool.get(model)
         resul = self._search_extend(model, domain)
-        #if len(resul) < 2:
-        #    resul = [resul]
-        expr = "for o in objects:\n    summ = summ + float(o.%s)" % field
-        localspace = {'objects':resul, 'summ':0}
+        expr=""
+        if  field_condition and condition_add:
+            expr = "for o in objects:\n    if o.%s in add:\n        summ = summ + float(o.%s)" % (field_condition, field)
+        elif field_condition and condition_substract:
+            expr = "for o in objects:\n    if o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field)
+        elif field_condition and condition_add and condition_substract:
+            expr = "for o in objects:\n    if o.%s in add:\n        summ = summ + float(o.%s)\n    elif o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field, field_condition, field)
+        else:
+            expr = "for o in objects:\n    summ = summ + float(o.%s)" % field
+        localspace = {
+                'objects': resul,
+                'add': condition_add,
+                'substract': condition_substract, 
+                'summ':0
+                    }
         exec expr in localspace
         return localspace['summ']
-        #expr = "summ=0\nfor o in resul:\n    summ=summ + float(o.%s)" % field
-        #return eval(expr,resul)
             
     def _read_ids(self, model, ids, fields = None):
         obj = self.pool.get(model)
