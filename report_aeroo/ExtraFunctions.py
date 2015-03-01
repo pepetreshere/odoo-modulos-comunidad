@@ -611,12 +611,12 @@ class ExtraFunctions(object):
         obj = self.pool.get(model)
         resul = self._search_extend(model, domain)
         expr=""
-        if  field_condition and condition_add:
+        if field_condition and condition_add and condition_substract:
+            expr = "for o in objects:\n    if o.%s in add:\n        summ = summ + float(o.%s)\n    elif o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field, field_condition, field)
+        elif  field_condition and condition_add:
             expr = "for o in objects:\n    if o.%s in add:\n        summ = summ + float(o.%s)" % (field_condition, field)
         elif field_condition and condition_substract:
             expr = "for o in objects:\n    if o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field)
-        elif field_condition and condition_add and condition_substract:
-            expr = "for o in objects:\n    if o.%s in add:\n        summ = summ + float(o.%s)\n    elif o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field, field_condition, field)
         else:
             expr = "for o in objects:\n    summ = summ + float(o.%s)" % field
         localspace = {
