@@ -157,8 +157,9 @@ class ExtraFunctions(object):
             'text_markup': self._text_markup,
             '__filter': self.__filter, # Don't use in the report template!
             # TRESCLOUD EXTENDED
-            'search_extend':self._search_extend,
-            'search_ids_extend':self._search_ids_extend,
+            'search_extend': self._search_extend,
+            'search_ids_extend': self._search_ids_extend,
+            'read_ids': self._read_ids,
         }
 
     def __filter(self, val):
@@ -604,3 +605,7 @@ class ExtraFunctions(object):
         obj = self.pool.get(model)
         ids = self._search_ids_extend(model, domain, order_by=order_by)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
+
+    def _read_ids(self, model, ids, fields = None):
+        obj = self.pool.get(model)
+        return obj.read(self.cr, self.uid, ids, fields, {'lang':self._get_lang()})
