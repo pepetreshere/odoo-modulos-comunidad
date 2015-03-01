@@ -609,7 +609,7 @@ class ExtraFunctions(object):
 
     def _sum_field_search(self, model, domain, field):
         obj = self.pool.get(model)
-        resul = self._search_ids_extend(model, domain, order_by=None)
+        resul = self._search_extend(model, domain)
         sum = 0
         for o in resul:
             val = "float(o.%s)" % field
