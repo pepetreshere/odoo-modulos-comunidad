@@ -610,6 +610,8 @@ class ExtraFunctions(object):
     def _sum_field_search(self, model, domain, field):
         obj = self.pool.get(model)
         resul = self._search_extend(model, domain)
+        if len(resul) < 2:
+            resul = [resul]
         sum = 0
         for o in resul:
             val = "float(o.%s)" % field
