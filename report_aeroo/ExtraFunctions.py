@@ -634,18 +634,25 @@ class ExtraFunctions(object):
             if condition_add and type(condition_add)==type([]):
                 #is a list, using in if
                 expr_if_add = "\n    if o.%s in add:\n        summ = summ + float(o.%s)" % (field_condition, field)
-            else:
+            elif condition_add:
                 expr_if_add = "\n    else:\n        summ = summ + float(o.%s)" % field
+                add_first_add = False
+            else:
+                expr_if_add = ""
                 add_first_add = False
             
             if condition_substract and type(condition_substract)==type([]):
                 #is a list, using in if
                 exp_if_subs = "\n    if o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field)
-            else:
+            elif condition_substract:
                 exp_if_subs = "\n    else:\n        summ = summ - float(o.%s)" % field
                 add_first_subs = False
+            else:
+                exp_if_subs = ""
+                add_first_subs = False
         
-            if not add_first_add and not add_first_subs:
+            # caso partidular, ambas condiciones True
+            if not add_first_add and not add_first_subs and condition_add and condition_substract:
                 expr = "summ = 0"
             elif add_first_subs:
                 expr = expr_for + exp_if_subs + expr_if_add
