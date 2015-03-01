@@ -610,9 +610,9 @@ class ExtraFunctions(object):
     def _sum_field_search(self, model, domain, field):
         obj = self.pool.get(model)
         resul = self._search_extend(model, domain)
-        if len(resul) < 2:
-            resul = [resul]
-        expr = "summ=0\nfor o in objects:\n    summ = summ + float(o.%s)" % field
+        #if len(resul) < 2:
+        #    resul = [resul]
+        expr = "for o in objects:\n    summ = summ + float(o.%s)" % field
         localspace = {'objects':resul, 'summ':0}
         exec expr in localspace
         return localspace['summ']
