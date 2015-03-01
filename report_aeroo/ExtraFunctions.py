@@ -612,10 +612,11 @@ class ExtraFunctions(object):
         resul = self._search_extend(model, domain)
         if len(resul) < 2:
             resul = [resul]
-        expr = "for o in objects:\n\tsumm+=float(o.%s)" % field
-        localspace = {'objects':resul, 'summ':0}
-        exec expr in localspace
-        return localspace['summ']
+        #expr = "summ=0\nfor o in objects:\n    summ=summ + float(o.%s)" % field
+        #localspace = {'objects':resul, 'summ':0}
+        #exec expr in localspace
+        expr = "summ=0\nfor o in resul:\n    summ=summ + float(o.%s)" % field
+        return eval(expr,resul)
             
     def _read_ids(self, model, ids, fields = None):
         obj = self.pool.get(model)
