@@ -37,7 +37,10 @@ try:
 except ImportError:
     from StringIO import StringIO
 
-def make_barcode(code, code_type='ean13', rotate=None, height=50, xw=1):
+def make_barcode(code, code_type='ean13', rotate=None, height=50, xw=1, width_factor=1.0):
+    '''
+    width_factor nos sirve para hacerle mas pequenio, util para docs electronicos
+    '''
     if code:
         if code_type.lower()=='ean13':
             bar=EanBarCode()
@@ -56,7 +59,7 @@ def make_barcode(code, code_type='ean13', rotate=None, height=50, xw=1):
     except Exception, e:
         pass
     im.save(tf, 'png')
-    size_x = str(im.size[0]/96.0)+'in'
+    size_x = str(width_factor*(im.size[0]/96.0))+'in'
     size_y = str(im.size[1]/96.0)+'in'
     return tf, 'image/png', size_x, size_y
 

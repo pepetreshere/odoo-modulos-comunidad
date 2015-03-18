@@ -156,6 +156,11 @@ class ExtraFunctions(object):
                 self._text_plain('"wikimarkup" format is not supported! Need to be installed "python-mediawiki" package.'),
             'text_markup': self._text_markup,
             '__filter': self.__filter, # Don't use in the report template!
+            # TRESCLOUD EXTENDED
+            'search_extend': self._search_extend,
+            'search_ids_extend': self._search_ids_extend,
+            'read_ids': self._read_ids,
+            'sum_field_search': self._sum_field_search,
         }
 
     def __filter(self, val):
@@ -587,3 +592,85 @@ class ExtraFunctions(object):
             return self._text_rest('\n'.join(lines))
         return text
 
+#
+# TRESCLOUD
+# Autor: Patricio Rangles
+# Librerias extras para reporteria
+#
+#
+    def _search_ids_extend(self, model, domain, order_by = None, count = False):
+        obj = self.pool.get(model)
+        return obj.search(self.cr, self.uid, domain, order=order_by, count=count)
+
+    def _search_extend(self, model, domain, order_by = None):
+        obj = self.pool.get(model)
+        ids = self._search_ids_extend(model, domain, order_by=order_by)
+        return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
+
+    def _sum_field_search(self, model, domain, field, field_condition=None, condition_add=None, condition_substract=None):
+        """
+        Function return the sum values of a field using conditionary field and condition values:
+        
+        field: field to sum
+        field_condition: field used like condition
+        condition_add: list of condition to add values, if send True is in all other cases (else) 
+        condition_substract: list of condition to substract values, if send True is in all other cases (else)
+         
+        """
+        
+        obj = self.pool.get(model)
+        resul = self._search_extend(model, domain)
+
+        expr = ""
+        
+        if field_condition:
+         
+            expr_for = "for o in objects:"
+            expr_if_add = ""
+            exp_if_subs = ""
+            add_first_add = True
+            add_first_subs = True
+         
+            if condition_add and type(condition_add)==type([]):
+                #is a list, using in if
+                expr_if_add = "\n    if o.%s in add:\n        summ = summ + float(o.%s)" % (field_condition, field)
+            elif condition_add:
+                expr_if_add = "\n    else:\n        summ = summ + float(o.%s)" % field
+                add_first_add = False
+            else:
+                expr_if_add = ""
+                add_first_add = False
+            
+            if condition_substract and type(condition_substract)==type([]):
+                #is a list, using in if
+                exp_if_subs = "\n    if o.%s in substract:\n        summ = summ - float(o.%s)" % (field_condition, field)
+            elif condition_substract:
+                exp_if_subs = "\n    else:\n        summ = summ - float(o.%s)" % field
+                add_first_subs = False
+            else:
+                exp_if_subs = ""
+                add_first_subs = False
+        
+            # caso partidular, ambas condiciones True
+            if not add_first_add and not add_first_subs and condition_add and condition_substract:
+                expr = "summ = 0"
+            elif add_first_subs:
+                expr = expr_for + exp_if_subs + expr_if_add
+            else:
+                expr = expr_for + expr_if_add + exp_if_subs
+        else:
+            expr = "for o in objects:\n    summ = summ + float(o.%s)" % field
+      
+        localspace = {
+                'objects': resul,
+                'add': condition_add,
+                'substract': condition_substract, 
+                'summ':0
+                    }
+        exec expr in localspace
+        
+        return localspace['summ']
+            
+    def _read_ids(self, model, ids, fields = None):
+        obj = self.pool.get(model)
+        return obj.read(self.cr, self.uid, ids, fields, {'lang':self._get_lang()})
