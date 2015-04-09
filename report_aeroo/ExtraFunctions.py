@@ -683,3 +683,69 @@ class ExtraFunctions(object):
         context['lang'] = self._get_lang()
         obj = self.pool.get(model)
         return obj.read(self.cr, self.uid, ids, fields=fields, context=context)
+
+    def _group_and_sum(self, list_to_group, field_group_by, fields_sum):#, group_empty = False):
+        """
+        Group a list of items under this conditions:
+        1) parameter list_to_group -> list of items to group by
+        2) parameter field_group_by -> group by one field, this field is returned  
+        3) parameter fields_sum -> List of fields to sum, this fields are returned
+           If a field is string check if text is different and add the description, other case
+           send one time the text
+        4) if field to group is False, if is blank o null they are independent values, don't group
+        5) the rest of fields are ignored
+        
+        -----------
+        TODO (Next revision):    
+        4) parameter group_empty -> allow the funcion to group empty, None or null values in one line
+           if False, if is blank o null they are independent values, don't group 
+        5) the rest of fields are ignored
+
+        """
+        
+        groups = []
+        
+        for item in list_to_group:
+            #group = {}
+            
+            # Se requiere iterar varias veces dependiendo los niveles de puntuacion
+            split_atributo = field_group_by.split('.')
+            actual = item
+            
+            for atrib in split_atributo:
+                actual = getattr(actual, atrib, None)
+            
+            group_exist= False
+            
+            if actual is not None:
+                for group in groups:
+                    if group[field_group_by] == actual:
+                        group_exist = True
+                        # ya existe, sumo los valores
+                        #sums = group['sums']
+                        for field in fields_sum:
+                            actual_sum = getattr(item, field, None) 
+                            if isinstance(group[field],basestring):
+                                # es texto, verifico si el anterior es igual
+                                if group[field] != actual_sum:
+                                    if group[field] != "":
+                                        group[field] = group[field] + ", " + actual_sum
+                                    else: 
+                                        group[field] = actual_sum 
+                                ##Grabo el ultimo texto
+                                #group[field] = actual_sum  
+                            else:
+                                # es numerico, sumo
+                                group[field] = group[field] + actual_sum  
+                        break
+
+            if not group_exist:
+                # no existe, agrego las sumas
+                group = {}
+                group[field_group_by] = actual 
+                for field in fields_sum:
+                    group[field] = getattr(item, field, None) 
+            
+                groups.append(group)
+            
+        return groups
