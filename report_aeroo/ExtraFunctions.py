@@ -597,18 +597,24 @@ class ExtraFunctions(object):
 # TRESCLOUD
 # Autor: Patricio Rangles
 # Librerias extras para reporteria
+# 
+# NOTA: Context es muy útil, por ejemplo, en campos autocalculados, especificamente en productos indicando
+# la bodega y las fechas iniciales y finles automaticamente indica el stock sin necesidad de calcular
+# nuevamente. Deben existir más ejemplos de este estilo
 #
-#
-    def _search_ids_extend(self, model, domain, order_by = None, count = False):
+    def _search_ids_extend(self, model, domain, order_by = None, count = False, context = None):
         obj = self.pool.get(model)
-        return obj.search(self.cr, self.uid, domain, order=order_by, count=count)
+        return obj.search(self.cr, self.uid, domain, order=order_by, count=count, context = context)
 
-    def _search_extend(self, model, domain, order_by = None):
+    def _search_extend(self, model, domain, order_by = None, context = None):
+        if not context:
+            context = {}
+        context['lang'] = self._get_lang()
         obj = self.pool.get(model)
-        ids = self._search_ids_extend(model, domain, order_by=order_by)
-        return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
+        ids = self._search_ids_extend(model, domain, order_by=order_by, context = context)
+        return obj.browse(self.cr, self.uid, ids, context = context)
 
-    def _sum_field_search(self, model, domain, field, field_condition=None, condition_add=None, condition_substract=None):
+    def _sum_field_search(self, model, domain, field, field_condition=None, condition_add=None, condition_substract=None, context=None):
         """
         Function return the sum values of a field using conditionary field and condition values:
         
@@ -620,7 +626,7 @@ class ExtraFunctions(object):
         """
         
         obj = self.pool.get(model)
-        resul = self._search_extend(model, domain)
+        resul = self._search_extend(model, domain, context=context)
 
         expr = ""
         
@@ -672,9 +678,12 @@ class ExtraFunctions(object):
         
         return localspace['summ']
             
-    def _read_ids(self, model, ids, fields = None):
+    def _read_ids(self, model, ids, fields = None, context = None):
+        if not context:
+            context = {}
+        context['lang'] = self._get_lang()
         obj = self.pool.get(model)
-        return obj.read(self.cr, self.uid, ids, fields, {'lang':self._get_lang()})
+        return obj.read(self.cr, self.uid, ids, fields=fields, context=context)
 
     def _group_and_sum(self, list_to_group, field_group_by, fields_sum):#, group_empty = False):
         """
