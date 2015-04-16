@@ -128,7 +128,7 @@ class stock_move(osv.osv):
         return result
 
     _columns = { 
-          'price_unit_without_costs': fields.float('', digits_compute=dp.get_precision('Product Price'), ),
+          'price_unit_without_costs': fields.float('Unit Price Without Costs', digits_compute=dp.get_precision('Product Price'), ),
           'price_unit_with_costs': fields.function(_landing_costs_price_unit_with_costs, digits_compute=dp.get_precision('Product Price'), ),
           'landing_costs_line_ids': fields.one2many('purchase.landing.cost.position', 'move_line_id', 'Landing Costs'),
           'landing_costs_per_value': fields.function(_landing_costs_per_value, digits_compute=dp.get_precision('Product Price'), string='Landing Costs Amount Per Value For Average Price'),
