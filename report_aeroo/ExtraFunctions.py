@@ -161,7 +161,7 @@ class ExtraFunctions(object):
             'search_ids_extend': self._search_ids_extend,
             'read_ids': self._read_ids,
             'sum_field_search': self._sum_field_search,
-            'group_and_sum':self._group_and_sum,
+            'group_and_sum': self._group_and_sum,
         }
 
     def __filter(self, val):
