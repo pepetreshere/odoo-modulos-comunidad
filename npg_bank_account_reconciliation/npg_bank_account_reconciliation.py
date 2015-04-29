@@ -95,9 +95,18 @@ class bank_acc_rec_statement(osv.osv):
         statement_line_obj = self.pool.get('bank.acc.rec.statement.line')
         # If difference balance not zero prevent further processing
         self.check_difference_balance(cr, uid, ids, context=context)
+        statement_lines_ids = []
         for statement in self.browse(cr, uid, ids, context=context):
-            statement_lines = statement.credit_move_line_ids + statement.debit_move_line_ids
-            for statement_line in statement_lines:
+            #Se obtienen los id de las lineas debito donde el campo cleared_bank_account es true           
+            for debit_move_line in statement.debit_move_line_ids:
+                if debit_move_line.cleared_bank_account:
+                    statement_lines_ids.append(debit_move_line.id)
+            #Se obtienen los id de las lineas credito donde el campo cleared_bank_account es true   
+            for credit_move_line in statement.credit_move_line_ids:
+                if credit_move_line.cleared_bank_account:
+                    statement_lines_ids.append(credit_move_line.id)                    
+                    
+            for statement_line in statement_line_obj.browse(cr, uid, statement_lines_ids, context=context):
                 #Mark the move lines as 'Cleared'mand assign the 'Bank Acc Rec Statement ID'
                 account_move_line_obj.write(cr, uid, [statement_line.move_line_id.id],
                                             {'cleared_bank_account': statement_line.cleared_bank_account,
@@ -304,7 +313,12 @@ class bank_acc_rec_statement_line(osv.osv):
         # This would allow only onchange method to pre-populate statement lines based on the filter rules.
         if not vals.get('move_line_id', False):
             raise osv.except_osv(_('Processing Error'),_('You cannot add any new bank statement line manually as of this revision!'))
-        account_move_line_obj.write(cr, uid, [vals['move_line_id']], {'draft_assigned_to_statement': True}, context=context)
+        #Actualizamos el campo draft_assigned_to_statement a true cuando cleared_bank_account es true, las lineas restantes se vuelven a 
+        #cargar cuando intenta hacer una nueva conciliacion para esa cuenta
+        if vals and 'move_line_id' in vals:
+            for statement_line in account_move_line_obj.browse(cr, uid, [vals['move_line_id']], context=context):
+                if statement_line.cleared_bank_account:
+                    account_move_line_obj.write(cr, uid, [vals['move_line_id']], {'draft_assigned_to_statement': True}, context=context)
         return super(bank_acc_rec_statement_line, self).create(cr, uid, vals, context=context)
 
     def unlink(self, cr, uid, ids, context=None):
@@ -318,5 +332,3 @@ class bank_acc_rec_statement_line(osv.osv):
         return super(bank_acc_rec_statement_line, self).unlink(cr, uid, ids, context=context)
 
 bank_acc_rec_statement_line()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
