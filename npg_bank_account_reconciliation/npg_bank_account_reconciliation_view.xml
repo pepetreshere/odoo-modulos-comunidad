@@ -64,7 +64,7 @@
 			                        <field name="name"/>
 			                        <field name="ref"/>
 			                        <field name="partner_id"/>
-			                        <field name="amount"/>
+			                        <field name="amount" sum="Total Egresos"/>
 			                        <field name="currency_id"/>
 									<field name="research_required"/>
 									<field name="move_line_id"/>
@@ -88,7 +88,7 @@
 			                        <field name="name"/>
 			                        <field name="ref"/>
 			                        <field name="partner_id"/>
-			                        <field name="amount"/>
+			                        <field name="amount" sum="Total Ingresos"/>
 			                        <field name="currency_id"/>
 									<field name="research_required"/>
 									<field name="move_line_id"/>
