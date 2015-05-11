@@ -385,10 +385,10 @@ class report_xml(osv.osv):
                 deferred_node = doc.xpath("//field[@name='deferred']")
                 modifiers = {'invisible': True}
                 # En foros recomiendan eliminar la linea 389 y 392
-                if( deferred_node):
+                if deferred_node:
                     transfer_modifiers_to_node(modifiers, deferred_node[0])
                 deferred_limit_node = doc.xpath("//field[@name='deferred_limit']")
-                if( deferred_limit_node):
+                if deferred_limit_node:
                     transfer_modifiers_to_node(modifiers, deferred_limit_node[0])
                 res['arch'] = etree.tostring(doc)
             ############################################
