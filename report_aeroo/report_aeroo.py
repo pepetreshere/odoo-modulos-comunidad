@@ -593,6 +593,7 @@ class Aeroo_report(report_sxw):
         if oo_parser.logo:
             logo = base64.decodestring(oo_parser.logo)
         create_doc = self.generators[report_xml.report_type]
+        self.tmpl = report_xml.report_file
         pdf = create_doc(etree.tostring(processed_rml),oo_parser.localcontext,logo,title.encode('utf8'))
         return (pdf, report_xml.report_type)
 
