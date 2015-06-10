@@ -775,7 +775,7 @@ class Aeroo_report(report_sxw):
         if report_xml_ids:
             report_xml = ir_obj.browse(cr, uid, report_xml_ids[0], context=context)
             report_xml.report_rml = None
-            report_xml.report_rml_content = None
+            #report_xml.report_rml_content = None
             report_xml.report_sxw_content_data = None
             report_rml.report_sxw_content = None
             report_rml.report_sxw = None
