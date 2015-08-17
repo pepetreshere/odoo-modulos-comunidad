@@ -45,6 +45,7 @@ from tools.translate import _
 import netsvc
 from tools.safe_eval import safe_eval as eval
 from aeroolib.plugins.opendocument import _filter
+import pytz, datetime
 
 try:
     from docutils.examples import html_parts # use python-docutils library
